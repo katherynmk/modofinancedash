@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MODO8 — Invoice Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav class="nav">
+    <div class="nav-brand">MODO8</div>
+    <a class="nav-link active" id="nav-invoices" href="#" onclick="showPage('invoices');return false;">Invoices</a>
+    <a class="nav-link" id="nav-projections" href="#" onclick="showPage('projections');return false;">Cash Flow</a>
+    <a class="nav-link" href="https://katherynmk.github.io/mododashboard.github.io/" target="_blank" style="opacity:.5">&#8599; Dashboard</a>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       PAGE 1 — INVOICES
+  ════════════════════════════════════════════════════════════════ -->
+  <div class="page active" id="page-invoices">
+
+    <div class="page-header">
+      <div>
+        <div class="page-title">Invoice Tracker</div>
+        <div class="page-subtitle">Updated <span id="updated-date"></span> &mdash; MODO8 LLC Internal Use</div>
+      </div>
+      <div class="page-stats">
+        <div class="stat">
+          <div class="stat-val" id="inv-stat-contract">—</div>
+          <div class="stat-label">Total Contract</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val" id="inv-stat-invoiced">—</div>
+          <div class="stat-label">Invoiced to Date</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val" id="inv-stat-outstanding">—</div>
+          <div class="stat-label">Outstanding</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="filter-btn active" onclick="setFilter('all', this)">All Projects</button>
+      <button class="filter-btn" onclick="setFilter('active', this)">Active</button>
+      <button class="filter-btn" onclick="setFilter('overdue', this)">Overdue</button>
+      <button class="filter-btn" onclick="setFilter('pending', this)">Pending Payment</button>
+      <button class="filter-btn" onclick="setFilter('done', this)">Complete</button>
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
+      <!-- Rendered by JS -->
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       PAGE 2 — CASH FLOW PROJECTIONS
+  ════════════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-projections">
+
+    <div class="page-header">
+      <div>
+        <div class="page-title">Cash Flow Projections</div>
+        <div class="page-subtitle">Confirmed revenue + projected invoices by month</div>
+      </div>
+      <div class="page-stats">
+        <div class="stat">
+          <div class="stat-val" id="proj-stat-confirmed">—</div>
+          <div class="stat-label">Confirmed In</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val" id="proj-stat-projected">—</div>
+          <div class="stat-label">Projected</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val" id="proj-stat-total">—</div>
+          <div class="stat-label">Total Pipeline</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-layout">
+
+      <!-- Bar Chart -->
+      <div class="chart-card">
+        <div class="chart-title">
+          Monthly Invoice Activity
+          <div class="chart-legend">
+            <div class="legend-item">
+              <div class="legend-dot" style="background:var(--accent);opacity:.85"></div>
+              Confirmed
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot" style="background:var(--accent);opacity:.3"></div>
+              Projected
+            </div>
+            <div class="legend-item">
+              <div style="width:24px;height:2px;background:var(--accent);opacity:.6;border-top:2px dashed var(--accent)"></div>
+              &nbsp;Today
+            </div>
+          </div>
+        </div>
+        <div id="proj-chart"></div>
+      </div>
+
+      <!-- Monthly Table -->
+      <div>
+        <div class="section-label">Month-by-Month Breakdown</div>
+        <div class="month-table-wrap">
+          <table class="month-table">
+            <thead>
+              <tr>
+                <th style="width:140px">Month</th>
+                <th>Invoices</th>
+                <th style="width:200px;text-align:right">Breakdown</th>
+                <th style="width:120px;text-align:right">Total</th>
+              </tr>
+            </thead>
+            <tbody id="proj-table-body">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
