@@ -181,7 +181,7 @@ const PROJECTS = [
         shipDate: '2026-08-10',
         customer: 'Storage Solutions',
         invoices: [
-          { stage: 'Downpayment (50%)', amount: 20570.00, date: '2026-06-15', net: 0, status: 'upcoming', notes: 'Due with PO', projected: true },
+          { stage: 'Downpayment (50%)', amount: 20570.00, date: '2026-06-15', net: 0, status: 'pending', notes: 'Due with PO', projected: true },
           { stage: 'Shipment (50%)', amount: 20570.00, date: '2026-08-10', net: 15, status: 'upcoming', notes: 'Due upon shipment', projected: true },
         ]
       },
