@@ -129,7 +129,7 @@ const PROJECTS = [
         customer: 'New Horizons',
         invoices: [
           { stage: 'Order (30%)', amount: 60799.50, date: '2026-06-17', net: 0, status: 'paid', notes: 'Received — 30% at time of order', projected: false },
-          { stage: 'Design Acceptance (30%)', amount: 60799.50, date: '2026-05-29', net: 0, status: 'upcoming', notes: 'Due upon design acceptance', projected: true },
+          { stage: 'Design Acceptance (30%)', amount: 60799.50, date: '2026-06-01', net: 30, status: 'pending', notes: 'Due upon design acceptance', projected: true },
           { stage: 'Shipment / FAT (30%)', amount: 60799.50, date: '2026-07-31', net: 0, status: 'upcoming', notes: 'Due upon shipment after successful Factory Acceptance Test — PO 101076 Rev V-0', projected: true },
           { stage: 'Delivery & Acceptance (10%)', amount: 20266.50, date: '2026-08-30', net: 30, status: 'upcoming', notes: 'Due Net 30 after delivery, acceptance, and receipt of all deliverables', projected: true },
         ]
