@@ -151,7 +151,7 @@ const PROJECTS = [
             id: 'r2',
             name: 'R2',
             status: 'engineering',
-            contract: 77310,
+            contract: 96082,
             shipDate: '2026-08-17',
             customer: 'R2',
             invoices: [
