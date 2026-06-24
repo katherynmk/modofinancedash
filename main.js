@@ -143,7 +143,7 @@ const PROJECTS = [
         customer: 'SpartanNash',
         invoices: [
           { stage: 'Downpayment (50%)', amount: 49318.50, date: '2026-06-17', net: 0, status: 'paid', notes: 'Due with PO', projected: true },
-          { stage: 'Engineering Complete (30%)', amount: 29591.10, date: '2026-06-05', net: 15, status: 'upcoming', notes: 'Due upon completion of engineering at MODO 8', projected: true },
+          { stage: 'Engineering Complete (30%)', amount: 29591.10, date: '2026-06-24', net: 15, status: 'pending', notes: 'did 40% 39k because first invoice was only 40%', projected: true },
           { stage: 'Shipment (20%)', amount: 19727.40, date: '2026-08-07', net: 30, status: 'upcoming', notes: 'Due upon completion of shipment', projected: true },
         ]
       },
