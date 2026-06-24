@@ -160,7 +160,6 @@ const PROJECTS = [
               { stage: 'Delivery Confirmation (20%)', amount: 15462.00, date: '2026-09-17', net: 30, status: 'upcoming', notes: 'Due upon delivery confirmation', projected: true },
                 { stage: 'Change Order (100%)', amount: 18772.00, date: '2026-06-24', net: 30, status: 'pending', notes: 'NET 0 Change Order', projected: true },
             ]
-            ]
           },
       {
         id: 'amazon-canada',
