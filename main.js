@@ -77,7 +77,7 @@ const PROJECTS = [
         customer: 'Kuecker Pulse Integration',
         invoices: [
           { stage: 'PO Placement (30%)', amount: 105000.00, date: '2026-04-24', net: 10, status: 'paid', notes: 'Received 4/24 — PO-0068608', projected: false },
-          { stage: 'Start of Manufacturing (20%)', amount: 70000.00, date: '2026-06-02', net: 30, status: 'pending', notes: 'Due at start of manufacturing — PO-0068608', projected: true },
+          { stage: 'Start of Manufacturing (20%)', amount: 70000.00, date: '2026-06-02', net: 30, status: 'paid', notes: 'Due at start of manufacturing — PO-0068608', projected: true },
           { stage: 'Manufacturing Complete (20%)', amount: 70000.00, date: '2026-06-30', net: 30, status: 'upcoming', notes: 'Due upon manufacturing complete — PO-0068608', projected: true },
           { stage: 'Start of Shipping (15%)', amount: 52500.00, date: '2026-07-21', net: 30, status: 'upcoming', notes: 'Due at start of shipping — PO-0068608', projected: true },
           { stage: 'Delivery Onsite Complete (15%)', amount: 52500.00, date: '2026-07-23', net: 30, status: 'upcoming', notes: 'Due upon delivery onsite complete — PO-0068608', projected: true },
