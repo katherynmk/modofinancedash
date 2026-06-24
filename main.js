@@ -104,7 +104,7 @@ const PROJECTS = [
         customer: 'Pitney Bowes',
         invoices: [
           { stage: 'Downpayment (40%)', amount: 90728.90, date: '2026-06-17', net: 0, status: 'paid', notes: 'Received — MODO826048', projected: false },
-          { stage: 'Engineering Complete (30%)', amount: 68046.68, date: '2026-06-19', net: 30, status: 'upcoming', notes: 'Due upon completion of engineering — MODO826048', projected: true },
+          { stage: 'Engineering Complete (30%)', amount: 68046.68, date: '2026-06-19', net: 30, status: 'pending', notes: 'Due upon completion of engineering — MODO826048', projected: true },
           { stage: 'Initial Shipment (30%)', amount: 68046.67, date: '2026-07-27', net: 30, status: 'upcoming', notes: 'Due upon initial shipment — MODO826048', projected: true },
         ]
       },
