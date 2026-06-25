@@ -186,6 +186,20 @@ const PROJECTS = [
           { stage: 'Shipment (50%)', amount: 20570.00, date: '2026-08-10', net: 15, status: 'upcoming', notes: 'Due upon shipment', projected: true },
         ]
       },
+    {
+  id: 'numina-boxout-jax',
+  name: 'NUMINA BOXOUT JAX',
+  status: 'engineering',
+  contract: 278522.00,
+  shipDate: '2026-09-14',
+  customer: 'Numina Group',
+  invoices: [
+    { stage: 'Down Payment (20%)',        amount: 55704.40, date: '2026-06-25', net: 0,  status: 'pending', notes: 'Due upon receipt of PO' },
+    { stage: 'First Payment (30%)',       amount: 83556.60, date: '2026-06-25', net: 30, status: 'upcoming', notes: 'Upon receipt of first payment' },
+    { stage: 'Initial Shipment (30%)',    amount: 83556.60, date: '2026-09-14', net: 30, status: 'upcoming', notes: 'Upon initial shipment' },
+    { stage: 'System Arrival (20%)',      amount: 55704.40, date: '2026-10-14', net: 30, status: 'upcoming', notes: 'Upon system arrival at job site' },
+  ]
+},
     ];
     
     // ─── HELPERS ─────────────────────────────────────────────────────────────────
