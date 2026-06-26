@@ -158,7 +158,7 @@ const PROJECTS = [
               { stage: 'Downpayment (50%)', amount: 38655.00, date: '2026-06-17', net: 0, status: 'paid', notes: 'Due with PO — MODO826014-R2', projected: true },
               { stage: 'Ship Notification (30%)', amount: 23193.00, date: '2026-08-17', net: 30, status: 'upcoming', notes: 'Due upon ship notification', projected: true },
               { stage: 'Delivery Confirmation (20%)', amount: 15462.00, date: '2026-09-17', net: 30, status: 'upcoming', notes: 'Due upon delivery confirmation', projected: true },
-                { stage: 'Change Order (100%)', amount: 18772.00, date: '2026-06-24', net: 30, status: 'pending', notes: 'NET 0 Change Order', projected: true },
+                { stage: 'Change Order (100%)', amount: 18772.00, date: '2026-06-24', net: 30, status: 'paid', notes: 'NET 0 Change Order', projected: true },
             ]
           },
       {
