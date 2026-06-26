@@ -200,6 +200,20 @@ const PROJECTS = [
     { stage: 'System Arrival (20%)',      amount: 55704.40, date: '2026-10-14', net: 30, status: 'upcoming', notes: 'Upon system arrival at job site' },
   ]
 },
+    {
+  id: 'numina-boxout-ftw',
+  name: 'NUMINA BOXOUT FTW',
+  status: 'engineering',
+  contract: 294504.00,
+  shipDate: '2026-09-14',
+  customer: 'Numina Group',
+  invoices: [
+    { stage: 'Down Payment (20%)',     amount: 58900.80,  date: '2026-06-25', net: 0,  status: 'pending',      notes: 'Due upon receipt of PO' },
+    { stage: 'First Payment (30%)',    amount: 88351.20,  date: '2026-06-25', net: 30, status: 'upcoming',     notes: 'Upon receipt of first payment' },
+    { stage: 'Initial Shipment (30%)', amount: 88351.20,  date: '2026-09-14', net: 30, status: 'upcoming',     notes: 'Upon initial shipment' },
+    { stage: 'System Arrival (20%)',   amount: 58900.80,  date: '2026-10-14', net: 30, status: 'upcoming',     notes: 'Upon system arrival at job site' },
+  ]
+},
     ];
     
     // ─── HELPERS ─────────────────────────────────────────────────────────────────
