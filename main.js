@@ -170,7 +170,7 @@ const PROJECTS = [
         customer: 'Amazon',
         invoices: [
           { stage: 'Downpayment (40%)', amount: 71142.40, date: '2026-05-01', net: 0, status: 'paid', notes: 'Received', projected: false },
-          { stage: 'Engineering Complete (30%)', amount: 53356.80, date: '2026-06-26', net: 30, status: 'pending', notes: 'Due upon completion of engineering at MODO 8', projected: true },
+          { stage: 'Engineering Complete (30%)', amount: 53356.80, date: '2026-06-26', net: 30, status: 'paid', notes: 'Due upon completion of engineering at MODO 8', projected: true },
           { stage: 'Initial Shipment (30%)', amount: 53356.80, date: '2026-08-28', net: 30, status: 'upcoming', notes: 'Due upon completion of initial shipment', projected: true },
         ]
       },
