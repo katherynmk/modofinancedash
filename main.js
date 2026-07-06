@@ -79,6 +79,7 @@ const PROJECTS = [
           { stage: 'PO Placement (30%)', amount: 105000.00, date: '2026-04-24', net: 10, status: 'paid', notes: 'Received 4/24 — PO-0068608', projected: false },
           { stage: 'Start of Manufacturing (20%)', amount: 70000.00, date: '2026-06-02', net: 30, status: 'paid', notes: 'Due at start of manufacturing — PO-0068608', projected: true },
           { stage: 'Manufacturing Complete (20%)', amount: 70000.00, date: '2026-06-30', net: 30, status: 'upcoming', notes: 'Due upon manufacturing complete — PO-0068608', projected: true },
+            { stage: 'Change Order (100%)', amount: 29420.40, date: '2026-07-06', net: 0, status: 'pending', notes: 'Change Order', projected: true },
           { stage: 'Start of Shipping (15%)', amount: 52500.00, date: '2026-07-21', net: 30, status: 'upcoming', notes: 'Due at start of shipping — PO-0068608', projected: true },
           { stage: 'Delivery Onsite Complete (15%)', amount: 52500.00, date: '2026-07-23', net: 30, status: 'upcoming', notes: 'Due upon delivery onsite complete — PO-0068608', projected: true },
         ]
@@ -171,7 +172,7 @@ const PROJECTS = [
         invoices: [
           { stage: 'Downpayment (40%)', amount: 71142.40, date: '2026-05-01', net: 0, status: 'paid', notes: 'Received', projected: false },
           { stage: 'Engineering Complete (20%)', amount: 53356.80, date: '2026-06-26', net: 30, status: 'paid', notes: 'Due upon completion of engineering at MODO 8', projected: true },
-          { stage: 'Under Invoiced Above' (10%)', amount: 17785.60, date: '2026-07-10', net: 30, status: 'upcoming', notes: 'Due upon completion of engineering at MODO 8', projected: true },
+          { stage: 'Under Invoiced Above (10%)', amount: 17785.60, date: '2026-07-10', net: 30, status: 'upcoming', notes: 'Due upon completion of engineering at MODO 8', projected: true },
           { stage: 'Initial Shipment (30%)', amount: 53356.80, date: '2026-08-28', net: 30, status: 'upcoming', notes: 'Due upon completion of initial shipment', projected: true },
         ]
       },
