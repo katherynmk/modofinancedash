@@ -63,7 +63,7 @@ const PROJECTS = [
           { stage: 'Downpayment (40%)', amount: 19462.00, date: '2026-05-27', net: 0, status: 'paid', notes: 'Received — PO SA1500191986LR', projected: false },
           { stage: 'Engineering Complete (30%)', amount: 14596.50, date: '2026-06-18', net: 30, status: 'paid', notes: 'Invoiced — PO SA1500191986LR', projected: false },
           { stage: 'Initial Shipment (20%)', amount: 9731.00, date: '2026-07-06', net: 30, status: 'pending', notes: 'Due upon initial shipment — PO SA1500191986LR', projected: true },
-          { stage: 'Final Shipment (10%)', amount: 4865.50, date: '2026-08-01', net: 30, status: 'upcoming', notes: 'Due upon completion of shipment — PO SA1500191986LR', projected: true },
+          { stage: 'Final Shipment (10%)', amount: 4865.50, date: '2026-08-01', net: 30, status: 'upcoming', notes: 'Freight: $2650', projected: true },
         ]
       },
       {
