@@ -49,9 +49,7 @@ const PROJECTS = [
         customer: 'ADI',
         invoices: [
           { stage: 'Downpayment (40%)', amount: 111400, date: '2026-05-12', net: 0,  status: 'paid', notes: '', projected: true },
-          { stage: 'Engineering (30%)', amount: 83550, date: '2026-06-14', net: 30, status: 'pending', notes: '', projected: true },
-          { stage: 'Initital Ship (20%)', amount: 55700, date: '2026-06-24', net: 30, status: 'pending', notes: '', projected: true },
-          { stage: 'Final / Ship (10%)', amount: 27850, date: '2026-06-26', net: 30, status: 'not-invoiced', notes: '', projected: true },
+          { stage: 'Project Complete (60%)', amount: 180910.00, date: '2026-07-07', net: 30, status: 'pending', notes: '', projected: true },
         ]
       },
       {
