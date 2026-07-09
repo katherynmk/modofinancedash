@@ -19,6 +19,7 @@ const PROJECTS = [
         { stage: 'FAT (20%)',         amount: 46026.29, date: '2026-04-07', net: 15, status: 'paid',    notes: '' },
         { stage: 'Change Order',      amount: 23076.92, date: '2026-05-12', net: 15, status: 'paid',    notes: '' },
         { stage: 'SAT (10%)',         amount: 23013.15, date: '2026-07-06', net: 30, status: 'pending',    notes: ''  },
+        { stage: 'Friehgt',         amount: 1696.41, date: '2026-07-09', net: 30, status: 'pending',    notes: ''  },
       ]
     },
     {
