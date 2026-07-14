@@ -33,7 +33,7 @@ const PROJECTS = [
         { stage: 'Base — PO (30%)',              amount: 109293.07, date: '2026-05-01', net: 0,  status: 'paid', notes: 'Base contract' },
         { stage: 'Base — Engineering (30%)',     amount: 109293.07, date: '2026-06-01', net: 30, status: 'paid', notes: 'Base contract' },
         { stage: 'Base — Initial Shipment (30%)',amount: 109293.07, date: '2026-07-06', net: 30, status: 'pending', notes: 'Base contract' },
-        { stage: 'Base — System Arrival (10%)', amount:  36431.03, date: '2026-07-07', net: 30, status: 'upcoming', notes: 'Base contract' },
+        { stage: 'Base — System Arrival (10%)', amount:  36431.03, date: '2026-07-14', net: 30, status: 'pending', notes: 'Base contract' },
         { stage: 'Install — Pre-Ship (40%)',     amount:  35400.07, date: '2026-06-15', net: 0,  status: 'paid', notes: '2 weeks prior to shipment' },
         { stage: 'Install — Labor Release (35%)',amount:  30975.06, date: '2026-06-15', net: 0,  status: 'paid', notes: 'Install' },
         { stage: 'Install — Complete (25%)',     amount:  22125.05, date: '2026-07-08', net: 30, status: 'upcoming', notes: 'Install' },
