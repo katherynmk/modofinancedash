@@ -178,7 +178,7 @@ const PROJECTS = [
       {
         id: 'forsyth',
         name: 'FORSYTH',
-        status: 'no-downpayment',
+        status: 'engineering',
         contract: 41140,
         shipDate: '2026-08-10',
         customer: 'CRG',
