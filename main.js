@@ -1,10 +1,8 @@
 // ─── MODO8 INVOICE TRACKER — main.js ───
-
 // ─── DATA ────────────────────────────────────────────────────────────────────
 // net: days after invoice date payment is expected (0, 15, 30, 45, 60, or any integer)
 // status: 'paid' | 'pending' | 'upcoming' | 'overdue' | 'not-invoiced'
 // projected: true = estimated invoice not yet sent
-
 const PROJECTS = [
     {
       id: 'actus',
@@ -155,7 +153,7 @@ const PROJECTS = [
             shipDate: '2026-08-17',
             customer: 'R2',
             invoices: [
-              { stage: 'Downpayment (50%)', amount: 38655.00, date: '2026-06-17', net: 0, status: 'paid', notes: 'Due with PO — MODO826014-R2', projected: true },
+              { stage: 'Downpayment (50%)', amount: 38655.00, date: '2026-06-17', net: 0,  status: 'paid', notes: 'Due with PO — MODO826014-R2', projected: true },
               { stage: 'Ship Notification (30%)', amount: 23193.00, date: '2026-08-17', net: 30, status: 'upcoming', notes: 'Due upon ship notification', projected: true },
               { stage: 'Delivery Confirmation (20%)', amount: 15462.00, date: '2026-09-17', net: 30, status: 'upcoming', notes: 'Due upon delivery confirmation', projected: true },
                 { stage: 'Change Order (100%)', amount: 18772.00, date: '2026-06-24', net: 30, status: 'paid', notes: 'NET 0 Change Order', projected: true },
@@ -215,30 +213,44 @@ const PROJECTS = [
     { stage: 'System Arrival (20%)',   amount: 58900.80,  date: '2026-10-14', net: 30, status: 'upcoming',     notes: 'Upon system arrival at job site' },
   ]
 },
+    {
+      id: 'focus-integration',
+      name: 'FOCUS INTEGRATION',
+      status: 'purchasing',
+      contract: 6300.00,
+      shipDate: '2026-09-11',
+      customer: 'FOCUS Integration, Inc.',
+      invoices: [
+        { stage: 'Downpayment (40%)', amount: 2520.00, date: '2026-07-20', net: 0,  status: 'pending',  notes: 'Invoice #857 sent to Alex Zupsic — PO #7414 / Quote MODO826201', projected: false },
+        { stage: 'Engineering Complete (30%)', amount: 1890.00, date: '2026-07-20', net: 30, status: 'upcoming', notes: 'Due upon completion of engineering — PO #7414', projected: true },
+        { stage: 'Initial Shipment (20%)', amount: 1260.00, date: '2026-09-11', net: 30, status: 'upcoming', notes: 'Due upon initial shipment — PO #7414', projected: true },
+        { stage: 'Final / Delivery (10%)', amount: 630.00, date: '2026-09-21', net: 30, status: 'upcoming', notes: 'Due upon delivery — PO #7414', projected: true },
+      ]
+    },
     ];
-    
+
     // ─── HELPERS ─────────────────────────────────────────────────────────────────
     const fmt    = (n) => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 0 });
     const fmtK   = (n) => n >= 1000 ? '$' + (n / 1000).toFixed(0) + 'k' : '$' + n;
     const parseDate = (s) => new Date(s + 'T00:00:00');
-    
+
     // Return the payment-due date for an invoice (invoice date + net days)
     function paymentDate(inv) {
       const d = parseDate(inv.date);
       d.setDate(d.getDate() + (inv.net || 0));
       return d;
     }
-    
+
     // Format a payment date for display
     function fmtDate(d) {
       return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     }
-    
+
     // Net terms label
     function netLabel(n) {
       return n === 0 ? 'Net 0' : `Net ${n}`;
     }
-    
+
     function statusClass(s) {
       const map = {
         'no-downpayment':  's-no-downpayment',
@@ -252,7 +264,7 @@ const PROJECTS = [
       };
       return map[s] || 's-done';
     }
-    
+
     function statusLabel(s) {
       const map = {
         'no-downpayment':  'No Downpmt',
@@ -266,19 +278,19 @@ const PROJECTS = [
       };
       return map[s] || s;
     }
-    
+
     function invoicedToDate(project) {
       return project.invoices
         .filter(i => i.status === 'paid')
         .reduce((s, i) => s + i.amount, 0);
     }
-    
+
     function nextInvoice(project) {
       return project.invoices.find(
         i => i.status === 'upcoming' || i.status === 'pending' || i.status === 'overdue'
       ) || null;
     }
-    
+
     function invStatusBadge(status) {
       const map = {
         paid:          '<span class="inv-status-paid">Paid</span>',
@@ -289,7 +301,7 @@ const PROJECTS = [
       };
       return map[status] || '';
     }
-    
+
     // ─── NET TERMS SELECTOR HTML ─────────────────────────────────────────────────
     // Rendered inline inside the expanded invoice table for each row
     function netSelect(invIdx, projectId, currentNet) {
@@ -310,7 +322,7 @@ const PROJECTS = [
         </div>
       `;
     }
-    
+
     function handleNetChange(projectId, invIdx, select) {
       const project = PROJECTS.find(p => p.id === projectId);
       if (!project) return;
@@ -340,7 +352,7 @@ const PROJECTS = [
         }
       }
     }
-    
+
     function handleNetCustom(projectId, invIdx, input) {
       const val = Math.max(0, parseInt(input.value, 10) || 0);
       input.value = val;
@@ -352,7 +364,7 @@ const PROJECTS = [
         renderProjectionsPage();
       }
     }
-    
+
     function handleStatusChange(projectId, invIdx, select) {
       const project = PROJECTS.find(p => p.id === projectId);
       if (!project) return;
@@ -367,7 +379,7 @@ const PROJECTS = [
         renderProjectionsPage();
       }
     }
-    
+
     function refreshPaymentDueCell(projectId, invIdx) {
       const cell = document.getElementById(`pdue-${projectId}-${invIdx}`);
       if (!cell) return;
@@ -378,10 +390,10 @@ const PROJECTS = [
         ? '<span style="color:var(--text-muted);font-size:11px">Same as invoice</span>'
         : `<span style="color:var(--accent)">${fmtDate(pd)}</span>`;
     }
-    
+
     // ─── INVOICE PAGE ─────────────────────────────────────────────────────────────
     let activeFilter = 'all';
-    
+
     function renderInvoicePage() {
       const grid = document.getElementById('projects-grid');
       const filtered =
@@ -390,23 +402,23 @@ const PROJECTS = [
         activeFilter === 'pending' ? PROJECTS.filter(p => p.invoices.some(i => i.status === 'pending')) :
         activeFilter === 'done'    ? PROJECTS.filter(p => p.status === 'done') :
         PROJECTS.filter(p => p.status !== 'done');
-    
+
       const totalContract  = filtered.reduce((s, p) => s + p.contract, 0);
       const totalInvoiced  = filtered.reduce((s, p) => s + invoicedToDate(p), 0);
       const outstanding    = filtered.reduce((s, p) => {
         const ni = nextInvoice(p);
         return s + (ni && (ni.status === 'pending' || ni.status === 'overdue') ? ni.amount : 0);
       }, 0);
-    
+
       document.getElementById('inv-stat-contract').textContent    = fmt(totalContract);
       document.getElementById('inv-stat-invoiced').textContent    = fmt(totalInvoiced);
       document.getElementById('inv-stat-outstanding').textContent = fmt(outstanding);
-    
+
       grid.innerHTML = filtered.map(p => {
         const paid = invoicedToDate(p);
         const pct  = p.contract > 0 ? Math.round((paid / p.contract) * 100) : 0;
         const ni   = nextInvoice(p);
-    
+
         let nextHtml = '<span class="next-invoice-none">—</span>';
         if (ni) {
           const pd = paymentDate(ni);
@@ -416,14 +428,14 @@ const PROJECTS = [
             <div class="next-invoice-terms">${netLabel(ni.net ?? 0)}</div>
           `;
         }
-    
+
         const invoiceRows = p.invoices.map((inv, idx) => {
           const pd        = paymentDate(inv);
           const isUpcoming = inv.status === 'upcoming';
           const pdDisplay  = inv.net === 0
             ? '<span style="color:var(--text-muted);font-size:11px">Same as invoice</span>'
             : `<span style="color:var(--accent)">${fmtDate(pd)}</span>`;
-    
+
           return `
             <tr class="${isUpcoming ? 'upcoming' : ''}">
               <td class="inv-stage">${inv.stage}</td>
@@ -444,7 +456,7 @@ const PROJECTS = [
             </tr>
           `;
         }).join('');
-    
+
         return `
           <div class="project-row" id="row-${p.id}">
             <div class="project-header" onclick="toggleRow('${p.id}')">
@@ -487,31 +499,31 @@ const PROJECTS = [
         `;
       }).join('');
     }
-    
+
     function toggleRow(id) {
       document.getElementById('row-' + id).classList.toggle('open');
     }
-    
+
     function setFilter(f, btn) {
       activeFilter = f;
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       renderInvoicePage();
     }
-    
+
     // ─── PROJECTIONS PAGE — keyed on PAYMENT date, not invoice date ───────────────
     function buildMonthlyData() {
       const map = {}; // key: 'YYYY-MM' based on payment due date
-    
+
       PROJECTS.forEach(project => {
         project.invoices.forEach(inv => {
           const pd  = paymentDate(inv);
           const key = `${pd.getFullYear()}-${String(pd.getMonth() + 1).padStart(2, '0')}`;
           if (!map[key]) map[key] = { actual: 0, projected: 0, chips: [] };
-    
+
           const label = `${project.name} ${inv.stage.split(' ')[0]}`;
           const netTag = inv.net > 0 ? ` (${netLabel(inv.net)})` : '';
-    
+
           if (inv.status === 'paid') {
             map[key].actual += inv.amount;
             map[key].chips.push({ label: label + netTag, projected: false });
@@ -526,7 +538,7 @@ const PROJECTS = [
           }
         });
       });
-    
+
       // May 2026 – Dec 2027
       const months = [];
       let cur = new Date(2026, 4, 1);
@@ -546,12 +558,12 @@ const PROJECTS = [
       }
       return months;
     }
-    
+
     function renderProjectionsPage() {
       const months   = buildMonthlyData();
       const today    = new Date();
       const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;
-    
+
       // ── BAR CHART ──
       const W = 900, H = 260, PAD = { top: 24, right: 20, bottom: 36, left: 70 };
       const chartW = W - PAD.left - PAD.right;
@@ -559,19 +571,19 @@ const PROJECTS = [
       const barW   = chartW / months.length;
       const maxVal = Math.max(...months.map(m => m.actual + m.projected), 1);
       const scale  = (v) => (v / maxVal) * chartH;
-    
+
       const step = maxVal <= 100000 ? 25000 : maxVal <= 300000 ? 50000 : 100000;
       const gridLines = [];
       for (let v = step; v <= maxVal * 1.1; v += step) gridLines.push(v);
-    
+
       const todayX = months.findIndex(m => m.key === todayKey);
-    
+
       let bars = '';
       months.forEach((m, i) => {
         const x  = PAD.left + i * barW;
         const bw = barW * 0.65;
         const bx = x + (barW - bw) / 2;
-    
+
         if (m.actual > 0) {
           const bh = scale(m.actual);
           const by = PAD.top + chartH - bh;
@@ -585,39 +597,39 @@ const PROJECTS = [
           bars += `<rect class="bar-projected" x="${bx.toFixed(1)}" y="${by.toFixed(1)}" width="${bw.toFixed(1)}" height="${bh.toFixed(1)}" rx="2"/>`;
           if (bh > 16 && m.actual === 0) bars += `<text class="value-label" x="${(bx + bw/2).toFixed(1)}" y="${(by + 11).toFixed(1)}" text-anchor="middle" font-size="9" opacity=".45">${fmtK(m.projected)}</text>`;
         }
-    
+
         bars += `<text class="axis-label" x="${(bx + bw/2).toFixed(1)}" y="${(PAD.top + chartH + 16).toFixed(1)}" text-anchor="middle">${m.label}</text>`;
       });
-    
+
       let gridSvg = '';
       gridLines.forEach(v => {
         const y = PAD.top + chartH - scale(v);
         gridSvg += `<line class="grid-line" x1="${PAD.left}" y1="${y.toFixed(1)}" x2="${(PAD.left + chartW).toFixed(1)}" y2="${y.toFixed(1)}"/>`;
         gridSvg += `<text class="axis-label" x="${PAD.left - 6}" y="${(y + 4).toFixed(1)}" text-anchor="end">${fmtK(v)}</text>`;
       });
-    
+
       let todayLineSvg = '';
       if (todayX >= 0) {
         const tx = PAD.left + todayX * barW + barW / 2;
         todayLineSvg = `<line class="today-line" x1="${tx.toFixed(1)}" y1="${PAD.top}" x2="${tx.toFixed(1)}" y2="${(PAD.top + chartH).toFixed(1)}"/>`;
         todayLineSvg += `<text class="axis-label" x="${tx.toFixed(1)}" y="${PAD.top - 6}" text-anchor="middle" fill="var(--accent)" font-size="9" font-weight="600">TODAY</text>`;
       }
-    
+
       const axisSvg = `
         <line class="axis-line" x1="${PAD.left}" y1="${PAD.top}" x2="${PAD.left}" y2="${PAD.top + chartH}"/>
         <line class="axis-line" x1="${PAD.left}" y1="${PAD.top + chartH}" x2="${PAD.left + chartW}" y2="${PAD.top + chartH}"/>
       `;
-    
+
       document.getElementById('proj-chart').innerHTML = `
         <svg class="chart-svg" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
           ${gridSvg}${axisSvg}${todayLineSvg}${bars}
         </svg>
       `;
-    
+
       // ── MONTHLY TABLE ──
       const tableBody     = document.getElementById('proj-table-body');
       const visibleMonths = months.filter(m => m.actual > 0 || m.projected > 0);
-    
+
       tableBody.innerHTML = visibleMonths.map(m => {
         const isCurrent = m.key === todayKey;
         const isFuture  = m.date > today;
@@ -626,7 +638,7 @@ const PROJECTS = [
           `<span class="inv-chip ${c.projected ? 'projected' : ''}">${c.label}</span>`
         ).join('');
         const totalClass = isFuture ? 'month-total-future' : 'month-total';
-    
+
         return `
           <tr class="${isCurrent ? 'is-current' : ''} ${isFuture ? 'is-future' : ''}">
             <td><div class="month-name">${m.date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</div></td>
@@ -639,7 +651,7 @@ const PROJECTS = [
           </tr>
         `;
       }).join('');
-    
+
       // ── HEADER STATS ──
       const totalConfirmed = months.reduce((s, m) => s + m.actual,    0);
       const totalProjected = months.reduce((s, m) => s + m.projected, 0);
@@ -647,7 +659,7 @@ const PROJECTS = [
       document.getElementById('proj-stat-projected').textContent = fmt(totalProjected);
       document.getElementById('proj-stat-total').textContent     = fmt(totalConfirmed + totalProjected);
     }
-    
+
     // ─── NAV / PAGE ROUTING ───────────────────────────────────────────────────────
     function showPage(name) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -656,7 +668,7 @@ const PROJECTS = [
       document.getElementById('nav-' + name).classList.add('active');
       if (name === 'projections') renderProjectionsPage();
     }
-    
+
     // ─── INIT ─────────────────────────────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', () => {
       renderInvoicePage();
